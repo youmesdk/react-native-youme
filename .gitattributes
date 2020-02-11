@@ -1,0 +1,14 @@
+* text eol=lf
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.ico binary
+*.icns binary
+*.dll binary
+*.exe binary
+*.dylib binary
+ymscreenrecord binary
+*.so binary
+*.a binary
+*.jar binary
+

@@ -1,0 +1,339 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		23AF28211EEFECD800D771AB /* RCTYoume.m in Sources */ = {isa = PBXBuildFile; fileRef = 23AF28201EEFECD800D771AB /* RCTYoume.m */; };
+		23AF28221EEFECD800D771AB /* RCTYoume.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 23AF281F1EEFECD800D771AB /* RCTYoume.h */; };
+		23C20DD11F0A6ED80095F60C /* YoumeConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 23C20DCC1F0A6ED80095F60C /* YoumeConst.m */; };
+		23C20DD21F0A6ED80095F60C /* RCTYoumeVideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 23C20DCE1F0A6ED80095F60C /* RCTYoumeVideoView.m */; };
+		23C20DD31F0A6ED80095F60C /* RCTYoumeViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 23C20DD01F0A6ED80095F60C /* RCTYoumeViewManager.m */; };
+		CF22C24D229D011B00AAC0ED /* libyoume_voice_engine.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CF22C24C229D011B00AAC0ED /* libyoume_voice_engine.a */; };
+		CF22C24F229D011E00AAC0ED /* libffmpeg3.3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CF22C24E229D011E00AAC0ED /* libffmpeg3.3.a */; };
+		CF22C251229D014400AAC0ED /* libYouMeCommon.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CF22C250229D014400AAC0ED /* libYouMeCommon.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		23AF281A1EEFECD800D771AB /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+				23AF28221EEFECD800D771AB /* RCTYoume.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		23ACF47C1EF0CF9500801BC7 /* libs */ = {isa = PBXFileReference; lastKnownFileType = folder; path = libs; sourceTree = "<group>"; };
+		23AF281C1EEFECD800D771AB /* libRCTYoume.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRCTYoume.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		23AF281F1EEFECD800D771AB /* RCTYoume.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCTYoume.h; sourceTree = "<group>"; };
+		23AF28201EEFECD800D771AB /* RCTYoume.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RCTYoume.m; sourceTree = "<group>"; };
+		23C20DCB1F0A6ED80095F60C /* YoumeConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YoumeConst.h; sourceTree = "<group>"; };
+		23C20DCC1F0A6ED80095F60C /* YoumeConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YoumeConst.m; sourceTree = "<group>"; };
+		23C20DCD1F0A6ED80095F60C /* RCTYoumeVideoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCTYoumeVideoView.h; sourceTree = "<group>"; };
+		23C20DCE1F0A6ED80095F60C /* RCTYoumeVideoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCTYoumeVideoView.m; sourceTree = "<group>"; };
+		23C20DCF1F0A6ED80095F60C /* RCTYoumeViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCTYoumeViewManager.h; sourceTree = "<group>"; };
+		23C20DD01F0A6ED80095F60C /* RCTYoumeViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCTYoumeViewManager.m; sourceTree = "<group>"; };
+		CF22C24C229D011B00AAC0ED /* libyoume_voice_engine.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libyoume_voice_engine.a; path = RCTYoume/libs/libyoume_voice_engine.a; sourceTree = "<group>"; };
+		CF22C24E229D011E00AAC0ED /* libffmpeg3.3.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libffmpeg3.3.a; path = RCTYoume/libs/libffmpeg3.3.a; sourceTree = "<group>"; };
+		CF22C250229D014400AAC0ED /* libYouMeCommon.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libYouMeCommon.a; path = RCTYoume/libs/libYouMeCommon.a; sourceTree = "<group>"; };
+		CF22C252229D016E00AAC0ED /* VideoToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VideoToolbox.framework; path = System/Library/Frameworks/VideoToolbox.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		23AF28191EEFECD800D771AB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CF22C24D229D011B00AAC0ED /* libyoume_voice_engine.a in Frameworks */,
+				CF22C24F229D011E00AAC0ED /* libffmpeg3.3.a in Frameworks */,
+				CF22C251229D014400AAC0ED /* libYouMeCommon.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		23AF28131EEFECD800D771AB = {
+			isa = PBXGroup;
+			children = (
+				23AF281E1EEFECD800D771AB /* RCTYoume */,
+				23AF281D1EEFECD800D771AB /* Products */,
+				CF22C24B229D011B00AAC0ED /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		23AF281D1EEFECD800D771AB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				23AF281C1EEFECD800D771AB /* libRCTYoume.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		23AF281E1EEFECD800D771AB /* RCTYoume */ = {
+			isa = PBXGroup;
+			children = (
+				23ACF47C1EF0CF9500801BC7 /* libs */,
+				23C20DCB1F0A6ED80095F60C /* YoumeConst.h */,
+				23C20DCC1F0A6ED80095F60C /* YoumeConst.m */,
+				23C20DCD1F0A6ED80095F60C /* RCTYoumeVideoView.h */,
+				23C20DCE1F0A6ED80095F60C /* RCTYoumeVideoView.m */,
+				23C20DCF1F0A6ED80095F60C /* RCTYoumeViewManager.h */,
+				23C20DD01F0A6ED80095F60C /* RCTYoumeViewManager.m */,
+				23AF281F1EEFECD800D771AB /* RCTYoume.h */,
+				23AF28201EEFECD800D771AB /* RCTYoume.m */,
+			);
+			path = RCTYoume;
+			sourceTree = "<group>";
+		};
+		CF22C24B229D011B00AAC0ED /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CF22C252229D016E00AAC0ED /* VideoToolbox.framework */,
+				CF22C24C229D011B00AAC0ED /* libyoume_voice_engine.a */,
+				CF22C24E229D011E00AAC0ED /* libffmpeg3.3.a */,
+				CF22C250229D014400AAC0ED /* libYouMeCommon.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		23AF281B1EEFECD800D771AB /* RCTYoume */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 23AF28251EEFECD800D771AB /* Build configuration list for PBXNativeTarget "RCTYoume" */;
+			buildPhases = (
+				23AF28181EEFECD800D771AB /* Sources */,
+				23AF28191EEFECD800D771AB /* Frameworks */,
+				23AF281A1EEFECD800D771AB /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RCTYoume;
+			productName = RCTYoume;
+			productReference = 23AF281C1EEFECD800D771AB /* libRCTYoume.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		23AF28141EEFECD800D771AB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = Syan;
+				TargetAttributes = {
+					23AF281B1EEFECD800D771AB = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = 342K4Q49RK;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 23AF28171EEFECD800D771AB /* Build configuration list for PBXProject "RCTYoume" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				English,
+				en,
+			);
+			mainGroup = 23AF28131EEFECD800D771AB;
+			productRefGroup = 23AF281D1EEFECD800D771AB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				23AF281B1EEFECD800D771AB /* RCTYoume */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		23AF28181EEFECD800D771AB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				23C20DD21F0A6ED80095F60C /* RCTYoumeVideoView.m in Sources */,
+				23C20DD31F0A6ED80095F60C /* RCTYoumeViewManager.m in Sources */,
+				23C20DD11F0A6ED80095F60C /* YoumeConst.m in Sources */,
+				23AF28211EEFECD800D771AB /* RCTYoume.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		23AF28231EEFECD800D771AB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_BITCODE = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		23AF28241EEFECD800D771AB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		23AF28261EEFECD800D771AB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = 342K4Q49RK;
+				ENABLE_BITCODE = YES;
+				FRAMEWORK_SEARCH_PATHS = "\"$(SRCROOT)/RCTYoume/libs\"";
+				HEADER_SEARCH_PATHS = (
+					"\"$(SRCROOT)/../../react-native/React\"/**",
+					"\"$(SRCROOT)/../../react-native/Libraries\"/**",
+					"\"$(SRCROOT)/RCTYoume/libs/include\"",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/RCTYoume/libs\"",
+					"$(PROJECT_DIR)/RCTYoume/libs",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		23AF28271EEFECD800D771AB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = 342K4Q49RK;
+				ENABLE_BITCODE = YES;
+				FRAMEWORK_SEARCH_PATHS = "\"$(SRCROOT)/RCTYoume/libs\"";
+				HEADER_SEARCH_PATHS = (
+					"\"$(SRCROOT)/../../react-native/React\"/**",
+					"\"$(SRCROOT)/../../react-native/Libraries\"/**",
+					"\"$(SRCROOT)/RCTYoume/libs/include\"",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/RCTYoume/libs\"",
+					"$(PROJECT_DIR)/RCTYoume/libs",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		23AF28171EEFECD800D771AB /* Build configuration list for PBXProject "RCTYoume" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				23AF28231EEFECD800D771AB /* Debug */,
+				23AF28241EEFECD800D771AB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		23AF28251EEFECD800D771AB /* Build configuration list for PBXNativeTarget "RCTYoume" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				23AF28261EEFECD800D771AB /* Debug */,
+				23AF28271EEFECD800D771AB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 23AF28141EEFECD800D771AB /* Project object */;
+}
