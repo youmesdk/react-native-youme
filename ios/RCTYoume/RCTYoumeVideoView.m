@@ -63,6 +63,10 @@
             self.userid = uid;
             self.glView = [self.engine createRender:self.userid parentView:self singleMode:NO];
             self.glView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+            //共享用户渲染画面适应屏幕，不裁剪拉伸
+            if([self.userid containsString:@"share"]){
+               [self.engine setRenderMode:self.userid mode:YOUME_VIDEO_RENDER_MODE_FIT];
+            }
         }
         [self.glView setHidden:self.hide];
         [self setHide: self.hide];

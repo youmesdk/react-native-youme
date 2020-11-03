@@ -1,4 +1,4 @@
-import { InitOption, JoinOption, LeaveOption, StreamOption } from "./types";
+import { InitOption, JoinOption, LeaveOption, StreamOption } from './types';
 /**
  * YoumeVideoEngine is the react native javascript interface for Youme Video SDK
  */
@@ -10,6 +10,7 @@ declare class YoumeVideoEngine {
     static off(reactNativeEvent: string): void;
     static removeAllListeners(): void;
     static leaveChannel(options: LeaveOption): Promise<any>;
+    static setLocalVideoPreviewMirror(isMirror: boolean): void;
     static setMicrophoneMute(mute: boolean): void;
     static setSpeakerMute(mute: boolean): void;
     static startCapturer(switchWithHeightIfLandscape: boolean): void;
@@ -28,6 +29,7 @@ declare class YoumeVideoEngine {
     static setListenOtherVoice(userid: string, listen: boolean): void;
     static setUsersVideoInfo(usersStreamInfo: StreamOption[]): void;
     static setVideoNetAdjustmode(adjustMode: number): void;
+    static setAVStatisticInterval(interval: number): void;
     static applicationInBackground(): void;
     static applicationInFront(): void;
     static kickOtherFromChannel(userid: string, channel: string, forbidSeconds: number): void;
@@ -41,5 +43,29 @@ declare class YoumeVideoEngine {
      * @param level 美颜等级，0.0 - 1.0
      */
     static setBeautyLevel(level: number): void;
+    /**
+     * 开始屏幕录制
+     */
+    static startScreenRecorder(): Promise<any>;
+    /**
+     * 停止屏幕录制
+     */
+    static stopScreenRecorder(): void;
+    /**
+     * 设置视频网络传输分辨率
+     */
+    static setVideoNetResolution(sendWidth: number, sendHeight: number): void;
+    /**
+     * 设置屏幕共享网络传输分辨率
+     */
+    static setVideoNetResolutionForShare(shareWidth: number, shareHeight: number): void;
+    /**
+     * 设置视频本地预览分辨率
+     */
+    static setVideoLocalResolution(sendWidth: number, sendHeight: number): void;
+    /**
+     * 获取 SDK 版本号
+     */
+    static sdkVersion: string;
 }
 export default YoumeVideoEngine;

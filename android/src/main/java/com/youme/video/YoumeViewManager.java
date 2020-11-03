@@ -116,9 +116,14 @@ public class YoumeViewManager extends SimpleViewManager<YoumeVideoView> {
 
     static ArrayList<String> userIds =  new ArrayList<>();
     static ArrayList<Integer> streamIds = new ArrayList<>();
-    static private void setUsersVideoInfo(YoumeVideoView view, final String userid, int streamId)
+    static private void setUsersVideoInfo(YoumeVideoView view, final String userid, final int streamId)
     {
-        api.setUsersVideoInfo(new String[]{userid}, new int[]{streamId});
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                api.setUsersVideoInfo(new String[]{userid}, new int[]{streamId});
+            }
+        }, 120);
         /** 合并请求，减少delay，不过由于实测view组件每个创建有20ms左右的间隔，太大，不合并了
         userIds.add(userid);
         streamIds.add(streamId);

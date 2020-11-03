@@ -1,9 +1,3 @@
-//
-//  MyAgoraRtcEngineKit.h
-//  RCTAgora
-//
-//
-
 #import <Foundation/Foundation.h>
 #import "YMVoiceService.h"
 

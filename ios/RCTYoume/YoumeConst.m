@@ -1,9 +1,3 @@
-//
-//  MyAgoraRtcEngineKit.m
-//  RCTAgora
-//
-//
-
 #import "YoumeConst.h"
 
 @implementation YoumeConst

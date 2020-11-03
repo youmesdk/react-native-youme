@@ -18,7 +18,7 @@
     "babel-jest": "^25.1.0",
     "jest": "^25.1.0",
     "metro-react-native-babel-preset": "^0.58.0",
-    "react-native-youme": "git+https://github.com/youmesdk/react-native-youme.git",
+    "react-native-youme": "git+https://github.com/fishg/react-native-youme.git",
     "react-test-renderer": "16.8.3"
   },
   "jest": {

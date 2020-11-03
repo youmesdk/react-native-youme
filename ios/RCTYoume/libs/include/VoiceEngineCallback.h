@@ -52,6 +52,8 @@
 
 - (void) onAVStatistic:(YouMeAVStatisticType_t)type  userID:(NSString*)userID  value:(int) value ;
 
+- (void) onAVStatisticNew:(YouMeAVStatisticType_t)type  userID:(NSString*)userID  value:(int) value  strParam:(NSString*)strParam;
+
 ///合流相关音视频数据回调
 /**
  *  功能描述: 音频数据回调
@@ -92,6 +94,6 @@
 //远端和录音的混合数据回调
 - (void)onPcmDataMix: (int)channelNum samplingRateHz:(int)samplingRateHz bytesPerSample:(int)bytesPerSample data:(void*) data dataSizeInByte:(int)dataSizeInByte;
 
-- (void)onVideoPreDecodeDataForUser:(const char *)userId data:(const void*)data len:(int)dataSizeInByte;
+- (void)onVideoPreDecodeDataForUser:(const char *)userId data:(const void*)data len:(int)dataSizeInByte ts:(uint64_t)timestamp;
 
 @end

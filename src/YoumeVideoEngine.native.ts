@@ -1,4 +1,4 @@
-import { NativeModules, NativeEventEmitter, Platform } from "react-native";
+import { NativeModules, NativeEventEmitter, Platform } from 'react-native';
 
 import {
   InitOption,
@@ -7,8 +7,8 @@ import {
   StreamOption,
   YOUME_REACT_NATIVE_EVENT,
   YOUME_USER_ROLE,
-  YOUME_ERROR_CODE
-} from "./types";
+  YOUME_ERROR_CODE,
+} from './types';
 
 const { Youme } = NativeModules;
 const YoumeEventEmitter = new NativeEventEmitter(Youme);
@@ -51,6 +51,10 @@ class YoumeVideoEngine {
     return Youme.leaveChannel(options);
   }
 
+  public static setLocalVideoPreviewMirror(isMirror: boolean) {
+    Youme.setLocalVideoPreviewMirror(isMirror);
+  }
+
   public static setMicrophoneMute(mute: boolean) {
     Youme.setMicrophoneMute(mute);
   }
@@ -66,7 +70,7 @@ class YoumeVideoEngine {
   /**
    * 通知SDK，屏幕发生旋转
    */
-  public static screenRotationChange(){
+  public static screenRotationChange() {
     Youme.screenRotationChange();
   }
 
@@ -94,7 +98,7 @@ class YoumeVideoEngine {
     Youme.setAutoSendStatus(sync);
   }
 
-  public static setOtherMicMute(userid: string,mute: boolean) {
+  public static setOtherMicMute(userid: string, mute: boolean) {
     Youme.setOtherMicMute(userid, mute);
   }
 
@@ -110,15 +114,19 @@ class YoumeVideoEngine {
     Youme.setUsersVideoInfo(usersStreamInfo);
   }
 
-  public static setVideoNetAdjustmode(adjustMode: number){
-    Youme.setVideoNetAdjustmode( adjustMode );
+  public static setVideoNetAdjustmode(adjustMode: number) {
+    Youme.setVideoNetAdjustmode(adjustMode);
   }
 
-  public static applicationInBackground(){
+  public static setAVStatisticInterval(interval: number) {
+    Youme.setAVStatisticInterval(interval);
+  }
+
+  public static applicationInBackground() {
     Youme.applicationInBackground();
   }
 
-  public static applicationInFront(){
+  public static applicationInFront() {
     Youme.applicationInFront();
   }
 
@@ -134,8 +142,7 @@ class YoumeVideoEngine {
    * 设置sdk 是否开启美颜，true为开启，false为关闭，初始化成功后，进频道前设置
    * @param isOpen 是否开启美颜
    */
-  public static openBeautify(isOpen : boolean)
-  {
+  public static openBeautify(isOpen: boolean) {
     Youme.openBeautify(isOpen);
   }
 
@@ -143,10 +150,58 @@ class YoumeVideoEngine {
    * 设置sdk 美颜等级，初始化成功后，进频道前后设置
    * @param level 美颜等级，0.0 - 1.0
    */
-  public static setBeautyLevel(level : number)
-  {
+  public static setBeautyLevel(level: number) {
     Youme.setBeautyLevel(level);
   }
+
+  /**
+   * 开始屏幕录制
+   */
+  public static startScreenRecorder(): Promise<any> {
+    return Youme.startScreenRecorder();
+  }
+
+  /**
+   * 停止屏幕录制
+   */
+  public static stopScreenRecorder() {
+    Youme.stopScreenRecorder();
+  }
+
+  /**
+   * 设置视频网络传输分辨率
+   */
+  public static setVideoNetResolution(
+    sendWidth: number,
+    sendHeight: number
+  ): void {
+    return Youme.setVideoNetResolution(sendWidth, sendHeight);
+  }
+
+  /**
+   * 设置屏幕共享网络传输分辨率
+   */
+  public static setVideoNetResolutionForShare(
+    shareWidth: number,
+    shareHeight: number
+  ): void {
+    return Youme.setVideoNetResolutionForShare(shareWidth, shareHeight);
+  }
+
+  /**
+   * 设置视频本地预览分辨率
+   */
+  public static setVideoLocalResolution(
+    sendWidth: number,
+    sendHeight: number
+  ): void {
+    return Youme.setVideoLocalResolution(sendWidth, sendHeight);
+  }
+
+  /**
+   * 获取 SDK 版本号
+   */
+  public static sdkVersion = Youme.sdkVersion + '';
 }
 
 export default YoumeVideoEngine;

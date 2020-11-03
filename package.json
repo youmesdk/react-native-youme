@@ -1,6 +1,6 @@
 {
   "name": "react-native-youme",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Youme Video React Native SDK for Android and iOS",
   "summary": "Youme Video React Native SDK for Android and iOS",
   "main": "lib/index.js",
@@ -32,9 +32,9 @@
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/fishg/react-native-youme/issues"
+    "url": "https://github.com/youmesdk/react-native-youme/issues"
   },
-  "homepage": "https://github.com/fishg/react-native-youme#readme",
+  "homepage": "https://github.com/youmesdk/react-native-youme#readme",
   "peerDependencies": {
     "react": "16.3.1",
     "react-native": ">=0.55.0"

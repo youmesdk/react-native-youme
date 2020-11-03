@@ -1,4 +1,4 @@
-﻿//
+//
 //  IYouMeEventCallback.h
 //  youme_voice_engine
 //
@@ -57,7 +57,7 @@ class IYouMeVideoPreDecodeCallback
 {
 public:
     //需要先调用setVideoPreDecodeCallBackEnable
-    virtual void onVideoPreDecode(std::string userId, void* data, int dataSizeInByte) = 0;
+    virtual void onVideoPreDecode(const char* userId, void* data, int dataSizeInByte, unsigned long long timestamp) = 0;
 };
 
 class IRestApiCallback{
@@ -75,7 +75,7 @@ class IYouMeMemberChangeCallback
 {
 public:
     virtual void onMemberChange( const char* channel, const char* listMemberChangeJson, bool bUpdate ) = 0 ;
-    virtual void onMemberChange( const char*  channel, std::list<MemberChange>& listMemberChange, bool bUpdate) { } ;
+    virtual void onMemberChange( const char*  channel, const char* userID,bool isJoin, bool bUpdate) { } ;
 };
 
 

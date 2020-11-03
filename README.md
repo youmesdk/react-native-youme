@@ -10,6 +10,16 @@
 
    `yarn`
 
+   RN >= 0.60
+
+   安装 CocoaPods 依赖（iOS Only）
+
+   iOS: `npx pod-install` or `cd ios && pod install`
+
+   RN <= 0.59
+
+   `react-native link`
+
 2. 编译运行
 
    Android: `react-native run-android`

@@ -20,7 +20,7 @@ const NativeYoumeView = requireNativeComponent("RCTYoumeView");
  *
  * This class is used to rendering native sdk video
  *
- * @props {@link AgoraViewProps}
+ * @props {@link YoumeViewProps}
  */
 export default class YoumeView extends React.Component<YoumeViewProps> {
     /**

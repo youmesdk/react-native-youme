@@ -169,6 +169,7 @@ export enum YOUME_EVENT_TYPE {
   YOUME_EVENT_AUDIO_INPUT_DEVICE_DISCONNECT = 74, ///< 音频采集设备拔出，移动端无效
 
   YOUME_EVENT_SWITCH_OUTPUT = 75, ///< 切换扬声器/听筒
+   YOUME_EVENT_AUDIO_ROUTE_CHANGE = 77, ///< 音频路由改变事件 (YouMeAudioRouteType_t)
 
   YOUME_EVENT_OTHERS_VIDEO_ON = 200, ///< 收到其它用户的视频流
 
@@ -297,6 +298,7 @@ export enum YOUME_AV_STATISTIC_TYPE {
   YOUME_AVS_VIDEO_DELAY_MS = 9,	//视频延迟，单位毫秒
   YOUME_AVS_VIDEO_BLOCK = 10,	//视频卡顿,是否发生过卡顿
   YOUME_AVS_AUDIO_PACKET_UP_LOSS_HALF = 11,	//音频上行的服务器丢包率，千分比
-  YOUME_AVS_VIDEO_PACKET_UP_LOSS_HALF = 12	//视频上行的服务器丢包率，千分比
+  YOUME_AVS_VIDEO_PACKET_UP_LOSS_HALF = 12,	//视频上行的服务器丢包率，千分比
+  YOUME_AVS_RECV_DATA_STAT = 13	//下行带宽,单位Bps
 
 }

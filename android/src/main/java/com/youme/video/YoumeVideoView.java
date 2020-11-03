@@ -52,13 +52,18 @@ public class YoumeVideoView extends PercentFrameLayout {
         VideoResolution initResolution = YoumeManager.getInstance().getResolution(userid);
         if(isSameDirection(initResolution.width, initResolution.height))
         {
-            renderInfo.view.setScalingType(RendererCommon.ScalingType.SCALE_ASPECT_FILL);
+            if(userid.contains("share")) {
+                surfaceView.setScalingType(RendererCommon.ScalingType.SCALE_ASPECT_FIT);
+            } else {
+                surfaceView.setScalingType(RendererCommon.ScalingType.SCALE_ASPECT_FILL);
+            }
         }else{
             renderInfo.view.setScalingType(RendererCommon.ScalingType.SCALE_ASPECT_FIT);
         }
         lastVideoWidth = initResolution.width;
         lastVideoHeight= initResolution.height;
 
+        final String userId = userid;
 
         renderInfo.view.init(EglBase.createContext(api.sharedEGLContext()), new RendererCommon.RendererEvents(){
             @Override
@@ -84,6 +89,7 @@ public class YoumeVideoView extends PercentFrameLayout {
 
             @Override
             public void onFrameResolutionChanged(final int width,final int height,final int rotation) {
+
                 post(new Runnable() {
                     @Override
                     public void run() {
@@ -101,7 +107,11 @@ public class YoumeVideoView extends PercentFrameLayout {
                             lastVideoHeight= height;
                             if(isSameDirection(lastVideoWidth, lastVideoHeight))
                             {
-                                surfaceView.setScalingType(RendererCommon.ScalingType.SCALE_ASPECT_FILL);
+                                if(userId.contains("share")) {
+                                    surfaceView.setScalingType(RendererCommon.ScalingType.SCALE_ASPECT_FIT);
+                                } else {
+                                    surfaceView.setScalingType(RendererCommon.ScalingType.SCALE_ASPECT_FILL);
+                                }
                             }else{
                                 surfaceView.setScalingType(RendererCommon.ScalingType.SCALE_ASPECT_FIT);
                             }
@@ -143,7 +153,11 @@ public class YoumeVideoView extends PercentFrameLayout {
             public void run() {
                 if(surfaceView != null && isSameDirection(lastVideoWidth, lastVideoHeight))
                 {
-                    surfaceView.setScalingType(RendererCommon.ScalingType.SCALE_ASPECT_FILL);
+                    if(userid.contains("share")) {
+                        surfaceView.setScalingType(RendererCommon.ScalingType.SCALE_ASPECT_FIT);
+                    } else {
+                        surfaceView.setScalingType(RendererCommon.ScalingType.SCALE_ASPECT_FILL);
+                    }
                 }else{
                     surfaceView.setScalingType(RendererCommon.ScalingType.SCALE_ASPECT_FIT);
                 }

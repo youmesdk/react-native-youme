@@ -1,4 +1,4 @@
-﻿//
+//
 //  OpenGLESView.h
 //  youme_voice_engine
 //
@@ -23,8 +23,9 @@ typedef NS_ENUM(NSInteger, GLVideoRenderPosition) {
 
 typedef NS_ENUM(NSInteger, GLVideoRenderMode) {
     GLVideoRenderModeHidden = 0,
-    GLVideoRenderModeFit = 1,
-    GLVideoRenderModeAdaptive = 2
+    GLVideoRenderModeFit = 1,           //显示所有画面，
+    GLVideoRenderModeAdaptive = 2,
+    GLVideoRenderModeStretch = 3,       //拉伸，刚好放满画面，不保证比例
 };
 
 #if TARGET_OS_OSX

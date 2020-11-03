@@ -44,7 +44,12 @@ RCT_EXPORT_MODULE();
 
 //导出常量
 - (NSDictionary *)constantsToExport {
-    return @{};
+    
+    NSString* sdkVersion = [[YMVoiceService getInstance] getSdkVersion];
+    
+    return @{
+        @"sdkVersion": [NSString stringWithFormat:@"%@", sdkVersion]  //SDK 版本号
+    };
 }
 
 - (NSError *) makeNSError:(NSDictionary *)options {
@@ -173,7 +178,8 @@ RCT_EXPORT_METHOD(switchCamera){
 
 //开启视频模式
 RCT_EXPORT_METHOD(startCapturer:(BOOL) switchWithHeightIfLandscape){
-    if(switchWithHeightIfLandscape) [self.engine screenRotationChange];//横竖屏分辨率交换自动设置
+    // 不需要再调用，改为sdk内部集成
+    //if(switchWithHeightIfLandscape) [self.engine screenRotationChange];//横竖屏分辨率交换自动设置
     [self.engine startCapture];
 }
 
@@ -196,6 +202,10 @@ RCT_EXPORT_METHOD(applicationInBackground){
 
 RCT_EXPORT_METHOD(outputToSpeaker:(BOOL) enableSpeaker){
     [self.engine setOutputToSpeaker:enableSpeaker];
+}
+
+RCT_EXPORT_METHOD(setLocalVideoPreviewMirror:(BOOL) isMirror){
+    [self.engine setLocalVideoPreviewMirror: isMirror];
 }
 
 RCT_EXPORT_METHOD(setMicrophoneMute:(BOOL) mute){
@@ -276,6 +286,22 @@ RCT_EXPORT_METHOD(setBeautyLevel:(float) level){
 
 RCT_EXPORT_METHOD(setVideoNetAdjustmode:(int) adjustMode){
     [self.engine setVideoNetAdjustmode: adjustMode];
+}
+
+RCT_EXPORT_METHOD(setAVStatisticInterval:(int) interval){
+    [self.engine setAVStatisticInterval: interval];
+}
+
+RCT_EXPORT_METHOD(setVideoNetResolution:(int) sendWidth sendHeight:(int) sendHeight){
+    [self.engine setVideoNetResolutionWidth:sendWidth height:sendHeight];
+}
+
+RCT_EXPORT_METHOD(setVideoNetResolutionForShare:(int) shareWidth shareHeight:(int) shareHeight){
+    
+}
+
+RCT_EXPORT_METHOD(setVideoLocalResolution:(int) sendWidth sendHeight:(int) sendHeight){
+    [self.engine setVideoLocalResolutionWidth:sendWidth height:sendHeight];
 }
 
 #pragma mark - <VoiceEngineCallback>
@@ -467,7 +493,6 @@ RCT_EXPORT_METHOD(setVideoNetAdjustmode:(int) adjustMode){
  */
 - (void) onAVStatistic:(YouMeAVStatisticType_t)avType  userID:(NSString*)userID  value:(int) value
 {
-    NSLog(@"onAVStatistic");
     dispatch_async(dispatch_get_main_queue(), ^{
         NSMutableDictionary *params = @{}.mutableCopy;
         switch(avType){
@@ -475,10 +500,22 @@ RCT_EXPORT_METHOD(setVideoNetAdjustmode:(int) adjustMode){
             case YOUME_AVS_VIDEO_PACKET_UP_LOSS_HALF:       //视频上行的服务器丢包率，千分比
             case YOUME_AVS_AUDIO_PACKET_DOWN_LOSS_RATE:     //音频下行丢包率,千分比
             case YOUME_AVS_VIDEO_PACKET_DOWN_LOSS_RATE:     //视频下行丢包率,千分比
+            case YOUME_AVS_RECV_DATA_STAT:     //下行带宽,单位Bps
+            case YOUME_AVS_VIDEO_BLOCK:        //视频卡顿
                 params[@"avType"] = [NSNumber numberWithInteger:avType];
                 params[@"userId"] =  [NSString stringWithString:userID];
                 params[@"value"] = [NSNumber numberWithInteger:value];
                 [self sendEvent:YOUME_ON_STATISTIC_UPDATE params:params];
+                break;
+            case YOUME_AVS_VIDEO_DELAY_MS:
+                {
+                    if(value > 900)
+                    {
+                        NSLog(@"for set resolution to 480p rtt: %d", value);
+                        [self.engine setVideoNetResolutionWidth:480 height:640];
+                        [self.engine setVideoNetResolutionWidthForSecond:240 height:320];
+                    }
+                }
                 break;
             default:
                 break;
@@ -488,6 +525,13 @@ RCT_EXPORT_METHOD(setVideoNetAdjustmode:(int) adjustMode){
 
 
     });
+}
+/**
+ *  新版数据统计回调（待启用）
+ */
+- (void) onAVStatisticNew:(YouMeAVStatisticType_t)avType  userID:(NSString*)userID  value:(int) value strParam:(NSString*)strParam
+{
+
 }
 
 ///合流相关音视频数据回调
