@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.media.AudioManager;
 import android.os.Build;
+import android.os.PowerManager;
 import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.WindowManager;
@@ -127,9 +128,14 @@ public class YoumeModule extends ReactContextBaseJavaModule implements AudioMana
                 }
             }
 
+            int sdkMode = api.YOUME_ANDROID_SDK_MODE_COMMON;
+            if(options.hasKey("isAndroidTPC") && options.getBoolean("isAndroidTPC")){
+                sdkMode = api.YOUME_ANDROID_SDK_MODE_TPC;
+            }
+
             YoumeManager.getInstance().init(getReactApplicationContext());
             api.SetCallback(mRtcEventHandler);
-            int code = api.init(options.getString("appKey"), options.getString("secretKey"), options.getInt("region"), options.hasKey("regionExt") ? options.getString("regionExt") : "");
+            int code = api.init(options.getString("appKey"), options.getString("secretKey"), options.getInt("region"), options.hasKey("regionExt") ? options.getString("regionExt") : "", sdkMode);
             if (code != 0) {
                 promise.reject(code + "", "init error");
             } else {
@@ -180,9 +186,8 @@ public class YoumeModule extends ReactContextBaseJavaModule implements AudioMana
             }
 
             shareFps = readInt(options, "shareFps", 15);
-            ScreenRecorder.setResolution(shareWidth, shareHeight);
             api.setVideoNetResolutionForShare(shareWidth, shareHeight);
-            ScreenRecorder.setFps(shareFps);
+            api.setVideoFpsForShare(shareFps);
             addOrientationListener();
 
             //开启讲话音量回调
@@ -878,8 +883,15 @@ public class YoumeModule extends ReactContextBaseJavaModule implements AudioMana
             shareHeight = sendWidth;
             shareWidth = sendHeight;
         }
-        ScreenRecorder.setResolution(shareWidth, shareHeight);
         api.setVideoNetResolutionForShare(shareWidth, shareHeight);
+    }
+
+    /**
+     * 设置屏幕共享网络传输帧率
+     */
+    @ReactMethod
+    public void setShareFps(int fps){
+        api.setVideoFpsForShare(fps);
     }
 
     /**
@@ -888,5 +900,79 @@ public class YoumeModule extends ReactContextBaseJavaModule implements AudioMana
     @ReactMethod
     public void setVideoLocalResolution(int sendWidth, int sendHeight){
         api.setVideoLocalResolution(sendWidth, sendHeight);
+    }
+
+    PowerManager.WakeLock wakeLock;
+    /**
+     * 设置贴近屏幕息屏
+     */
+    @ReactMethod
+    public void acquireWakeLock(){
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            if(wakeLock == null){
+                PowerManager pm = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
+                wakeLock = pm.newWakeLock(PowerManager.PROXIMITY_SCREEN_OFF_WAKE_LOCK, TAG + ":WakeLock");
+            }
+            wakeLock.acquire();
+        }
+    }
+
+    /**
+     * 取消贴近屏幕息屏
+     */
+    @ReactMethod
+    public void releaseWakeLock(){
+        if(wakeLock != null && wakeLock.isHeld()){
+            wakeLock.release();
+        }
+    }
+
+/**
+ * 设置 Android 10 及以上通知中心标题
+ */
+    @ReactMethod
+    public void setScreenRecorderNotification(String title){
+        if(Build.VERSION.SDK_INT >= 29 && (getReactApplicationContext().getApplicationInfo().targetSdkVersion >= 29)){
+            ScreenRecorder.setScreenRecordNotification(title, "");
+        }
+    }
+
+    /**
+     * 获取摄像头个数
+     */
+    @ReactMethod(isBlockingSynchronousMethod = true)
+    public int getCameraCount(){
+        return api.getCameraCount();
+    }
+
+    /**
+     * 判断是否有前置摄像头
+     */
+    @ReactMethod(isBlockingSynchronousMethod = true)
+    public boolean hasFrontCamera(){
+        return api.hasFrontCamera();
+    }
+
+    /**
+     * 判断是否有后置摄像头
+     */
+    @ReactMethod(isBlockingSynchronousMethod = true)
+    public boolean hasBackCamera(){
+        return api.hasBackCamera();
+    }
+
+    /**
+     * 获取当前打开的摄像头
+     */
+    @ReactMethod(isBlockingSynchronousMethod = true)
+    public int getCurrentOpenCamera(){
+        return api.getCurrentOpenCamera();
+    }
+    /**
+     * 更改当前打开的摄像头
+     */
+    @ReactMethod
+    public void setOpenCamera(int cameraId){
+        api.setOpenCamera(cameraId);
     }
 }

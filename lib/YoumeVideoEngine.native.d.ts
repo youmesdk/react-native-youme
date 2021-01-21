@@ -56,13 +56,61 @@ declare class YoumeVideoEngine {
      */
     static setVideoNetResolution(sendWidth: number, sendHeight: number): void;
     /**
+     * 设置视频网络传输大流帧率
+     */
+    static setVideoFps(fps: number): void;
+    /**
+     * 设置视频网络传输小流帧率
+     */
+    static setVideoFpsForSecond(fps: number): void;
+    /**
+     * 设置视频本地预览帧率
+     */
+    static setVideoPreviewFps(fps: number): void;
+    /**
      * 设置屏幕共享网络传输分辨率
      */
     static setVideoNetResolutionForShare(shareWidth: number, shareHeight: number): void;
     /**
+     * 设置屏幕共享网络传输帧率
+     */
+    static setShareFps(fps: number): void;
+    /**
      * 设置视频本地预览分辨率
      */
     static setVideoLocalResolution(sendWidth: number, sendHeight: number): void;
+    /**
+     * 设置贴近屏幕息屏
+     */
+    static acquireWakeLock(): void;
+    /**
+     * 释放贴近屏幕息屏
+     */
+    static releaseWakeLock(): void;
+    /**
+     * 设置 Android 10 及以上通知中心标题
+     */
+    static setScreenRecorderNotification(title: string): void;
+    /**
+     * 获取摄像头个数
+     */
+    static getCameraCount(): number;
+    /**
+     * 判断是否有前置摄像头
+     */
+    static hasFrontCamera(): boolean;
+    /**
+     * 判断是否有后置摄像头
+     */
+    static hasBackCamera(): boolean;
+    /**
+     * 获取当前打开的摄像头
+     */
+    static getCurrentOpenCamera(): number;
+    /**
+     * 更改当前打开的摄像头
+     */
+    static setOpenCamera(cameraId: number): void;
     /**
      * 获取 SDK 版本号
      */

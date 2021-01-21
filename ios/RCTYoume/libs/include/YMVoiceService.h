@@ -671,6 +671,13 @@
 -(void) setShareContext:(void*) context;
 
 /**
+ * 共享屏幕、共享窗口时，绘制边框的开关；在开始共享前调用
+ * @param bEnable:true,共享时绘制边框；false，共享时，不绘制边框
+ * @return 无返回码
+ */
+-(void) enableShareBorder:(bool) bEnable;
+
+/**
  * 功能描述:   停止桌面/窗口共享
  */
 - (void)stopShare;

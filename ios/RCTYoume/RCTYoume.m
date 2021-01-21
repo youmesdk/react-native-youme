@@ -300,8 +300,37 @@ RCT_EXPORT_METHOD(setVideoNetResolutionForShare:(int) shareWidth shareHeight:(in
     
 }
 
+//设置大流fps
+RCT_EXPORT_METHOD(setVideoFps:(int) fps){
+    [self.engine setVideoFps:fps];
+}
+
+//设置小流fps
+RCT_EXPORT_METHOD(setVideoFpsForSecond:(int) fps){
+   [self.engine setVideoFpsForSecond: fps];
+}
+
+//设置预览fps
+RCT_EXPORT_METHOD(setVideoPreviewFps:(int) fps){
+    [self.engine setVideoPreviewFps:fps];
+}
+
+RCT_EXPORT_METHOD(setShareFps:(int) fps){
+    
+}
+
 RCT_EXPORT_METHOD(setVideoLocalResolution:(int) sendWidth sendHeight:(int) sendHeight){
     [self.engine setVideoLocalResolutionWidth:sendWidth height:sendHeight];
+}
+
+//设置红外感应，贴近屏幕黑屏，远离屏幕亮屏
+RCT_EXPORT_METHOD(acquireWakeLock){
+    [[UIDevice currentDevice] setProximityMonitoringEnabled:YES];
+}
+
+//取消红外感应
+RCT_EXPORT_METHOD(releaseWakeLock){
+    [[UIDevice currentDevice] setProximityMonitoringEnabled:NO];
 }
 
 #pragma mark - <VoiceEngineCallback>

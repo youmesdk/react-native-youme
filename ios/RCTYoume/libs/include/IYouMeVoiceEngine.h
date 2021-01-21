@@ -1521,6 +1521,13 @@ public:
      *          其他 - 具体错误码
      */
     YouMeErrorCode startSaveScreen(const char* filePath, HWND renderHandle, HWND captureHandle);
+
+    /**
+     * 共享屏幕、共享窗口时，绘制边框的开关；在开始共享前调用
+     * @param bEnable:true,共享时绘制边框；false，共享时，不绘制边框
+     * @return 无返回码
+     */
+    void enableShareBorder(bool bEnable);
     
 #elif MAC_OS
     /**
@@ -1555,7 +1562,15 @@ public:
      * @return 无返回码
      */
     void GetWindowInfoList(char *pWinOwner, char *pWinName, int *pWinId, int *winCount);
+
+    /**
+     * 共享屏幕、共享窗口时，绘制边框的开关；在开始共享前调用
+     * @param bEnable:true,共享时绘制边框；false，共享时，不绘制边框
+     * @return 无返回码
+     */
+    void enableShareBorder(bool bEnable);
 #endif
+
     /**
      * 开始屏幕采集并录像
      * @param filePath:录像文件路径，目前只支持mp4格式

@@ -211,6 +211,7 @@ typedef enum YouMeEvent {
     YOUME_EVENT_RECOGNIZE_MODULE_UNINIT      = 702, ///< 语音识别结束
     YOUME_EVENT_RECOGNIZE_MODULE_ERR         = 703, ///< 语音识别出错
 
+    // for windows/mac share
 	YOUME_EVENT_LOCAL_SHARE_WINDOW_CLOSED	 = 725, ///< 共享窗口被关闭
     YOUME_EVENT_LOCAL_SHARE_WINDOW_INVSIABLE = 726, ///< 共享窗口被隐藏，不可见
     YOUME_EVENT_LOCAL_SHARE_WINDOW_ISICONIC  = 727, ///< 共享窗口被最小化
